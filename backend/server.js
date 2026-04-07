@@ -36,6 +36,17 @@ app.use("/api/jobs", jobRoutes);
 // review routes
 app.use("/api/reviews", reviewRoutes);
 
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://workforce-platform-theta.vercel.app/"
+  ],
+  credentials: true
+}));
+
 // Start server
 const PORT = process.env.PORT || 5000;
 
