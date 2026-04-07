@@ -14,14 +14,16 @@ const app = express();
 // Connect DB
 connectDB();
 
-// CORS Configuration (MUST be before routes)
+// CORS Configuration (BEFORE routes)
 app.use(cors({
   origin: [
     "http://localhost:3000",
     "http://localhost:5173",
-    "https://workforce-platform-theta.vercel.app"
+    "https://workforce-platform-1c7sxyaqe-vigneshnaizs-projects.vercel.app"
   ],
-  credentials: true
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 // Middleware
