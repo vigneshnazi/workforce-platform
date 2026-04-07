@@ -2,7 +2,6 @@
   width: 100%;
 }
 
-/* Hero Section */
 .hero {
   background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
   color: white;
@@ -69,7 +68,6 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Features Section */
 .features {
   padding: 80px 40px;
   background: #f9fafb;
@@ -123,7 +121,6 @@
   line-height: 1.6;
 }
 
-/* How It Works Section */
 .how-it-works {
   padding: 80px 40px;
   background: white;
@@ -177,7 +174,6 @@
   color: #6b7280;
 }
 
-/* Stats Section */
 .stats {
   padding: 80px 40px;
   background: #f9fafb;
@@ -211,7 +207,6 @@
   color: #6b7280;
 }
 
-/* CTA Section */
 .cta-section {
   padding: 80px 40px;
   background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
@@ -231,7 +226,6 @@
   opacity: 0.95;
 }
 
-/* Footer */
 .footer {
   padding: 40px;
   background: #f3f4f6;
@@ -241,7 +235,6 @@
   border-top: 0.5px solid #e5e7eb;
 }
 
-/* Animations */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -264,324 +257,6 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero {
-    padding: 60px 20px;
-    min-height: 400px;
-  }
-
-  .features,
-  .how-it-works,
-  .stats,
-  .cta-section {
-    padding: 60px 20px;
-  }
-
-  .features-grid,
-  .steps-container,
-  .stats-grid {
-    gap: 20px;
-  }
-
-  .feature-card,
-  .step,
-  .stat-card {
-    padding: 20px;
-  }
-}
-EOF
-cat /mnt/user-data/outputs/HomePage.css
-Output
-
-.homepage {
-  width: 100%;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
-  color: white;
-  padding: 80px 40px;
-  text-align: center;
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  animation: slideDown 0.8s ease;
-}
-
-.hero p {
-  font-size: 20px;
-  margin-bottom: 30px;
-  opacity: 0.95;
-  animation: slideUp 0.8s ease 0.2s both;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-  animation: slideUp 0.8s ease 0.4s both;
-}
-
-.btn {
-  padding: 12px 32px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-primary {
-  background: white;
-  color: #2563eb;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Features Section */
-.features {
-  padding: 80px 40px;
-  background: #f9fafb;
-}
-
-.section-title {
-  font-size: 36px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 60px;
-  color: #1f2937;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  border: 0.5px solid #e5e7eb;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.feature-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.feature-card h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #1f2937;
-}
-
-.feature-card p {
-  font-size: 14px;
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-/* How It Works Section */
-.how-it-works {
-  padding: 80px 40px;
-  background: white;
-}
-
-.steps-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.step {
-  background: #f9fafb;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  border: 0.5px solid #e5e7eb;
-  transition: all 0.3s ease;
-}
-
-.step:hover {
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #2563eb, #0ea5e9);
-  color: white;
-  border-radius: 50%;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.step h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #1f2937;
-}
-
-.step p {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* Stats Section */
-.stats {
-  padding: 80px 40px;
-  background: #f9fafb;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.stat-card {
-  text-align: center;
-  padding: 30px;
-  border-radius: 12px;
-  background: white;
-  border: 0.5px solid #e5e7eb;
-}
-
-.stat-number {
-  font-size: 36px;
-  font-weight: 600;
-  color: #2563eb;
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* CTA Section */
-.cta-section {
-  padding: 80px 40px;
-  background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
-  color: white;
-  text-align: center;
-}
-
-.cta-section h2 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.cta-section p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  opacity: 0.95;
-}
-
-/* Footer */
-.footer {
-  padding: 40px;
-  background: #f3f4f6;
-  text-align: center;
-  font-size: 14px;
-  color: #6b7280;
-  border-top: 0.5px solid #e5e7eb;
-}
-
-/* Animations */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 32px;
