@@ -1,16 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 
-function Navbar() {
-  const [user, setUser] = useState(null);
+export default function Navbar() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    // Check user on mount and when localStorage changes
+    const checkUser = () => {
+      const userData = localStorage.getItem("user");
+      if (userData) {
+        setUser(JSON.parse(userData));
+      } else {
+        setUser(null);
+      }
+    };
+
+    checkUser();
+
+    // Listen for storage changes (login/logout in other tabs)
+    window.addEventListener("storage", checkUser);
+    return () => window.removeEventListener("storage", checkUser);
   }, []);
 
   const handleLogout = () => {
@@ -23,35 +34,27 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to={user?.role === "worker" ? "/worker" : "/recruiter"} className="navbar-logo">
-          <img src="/logo.svg" alt="WorkForce Logo" className="logo-icon" />
+        <a href="/" className="navbar-logo">
+          <img src="/logo.svg" alt="Logo" width="50" height="50" />
           <span>WorkForce</span>
-        </Link>
+        </a>
 
-        <div className="navbar-menu">
+        <div className="navbar-right">
           {user ? (
             <>
-              <div className="navbar-user">
-                <span className="user-badge">{user.role.charAt(0).toUpperCase()}</span>
-                <div className="user-info">
-                  <p className="user-name">{user.name}</p>
-                  <p className="user-role">{user.role}</p>
-                </div>
-              </div>
-              <button onClick={handleLogout} className="btn-logout">
+              <span>Welcome, {user.name}!</span>
+              <button onClick={handleLogout} className="logout-btn">
                 Logout
               </button>
             </>
           ) : (
-            <div className="navbar-links">
-              <Link to="/login" className="nav-link">Login</Link>
-              <Link to="/register" className="nav-link nav-link-primary">Register</Link>
-            </div>
+            <>
+              <a href="/login">Login</a>
+              <a href="/register">Register</a>
+            </>
           )}
         </div>
       </div>
     </nav>
   );
 }
-
-export default Navbar;
