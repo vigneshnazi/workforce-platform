@@ -14,17 +14,27 @@ const app = express();
 // Connect DB
 connectDB();
 
-// CORS Configuration (BEFORE routes)
+// CORS Configuration
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://workforce-platform-1c7sxyaqe-vigneshnaizs-projects.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:3000",
+      "http://localhost:5173",
+    ];
+
+    // Allow any Vercel preview deployment for project
+    const isVercel = origin && origin.endsWith(".vercel.app");
+
+    if (!origin || allowedOrigins.includes(origin) || isVercel) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
-}));
+  }));
 
 // Middleware
 app.use(express.json());
