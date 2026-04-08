@@ -1,13 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Navbar.css";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check user on mount and when localStorage changes
+    // Check user on mount and route change
     const checkUser = () => {
       const userData = localStorage.getItem("user");
       if (userData) {
@@ -22,7 +23,7 @@ export default function Navbar() {
     // Listen for storage changes (login/logout in other tabs)
     window.addEventListener("storage", checkUser);
     return () => window.removeEventListener("storage", checkUser);
-  }, []);
+  }, [location]); // Re-check when route changes!
 
   const handleLogout = () => {
     localStorage.removeItem("token");
